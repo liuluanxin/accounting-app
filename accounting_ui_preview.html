@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -11,10 +11,10 @@
     --primary: #6BA8D9;
     --primary-dark: #4A7FB5;
     --primary-light: #A8D4E8;
-    --income: #7BC4A8;
-    --expense: #E89B9B;
-    --text-main: #3D4A6B;
-    --text-sub: #94A3C4;
+    --income: #E89B9B;
+    --expense: #7BC4A8;
+    --text-main: #1F2A47;
+    --text-sub: #5A6788;
     --card-bg: #FFFFFF;
     --card-radius: 16px;
     --nav-height: 70px;
@@ -29,7 +29,7 @@
     --cosmic-2: #A8D4E8;
     --cosmic-3: #C5B8E8;
     --cosmic-coin: #FFD89E;
-    --cosmic-deep: #3D4A6B;
+    --cosmic-deep: #1F2A47;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -218,7 +218,10 @@
   .phone-frame {
     width: 414px;
     height: 896px;
-    background: #FFFFFF;
+    background-image: url('phone-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: 44px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(60, 50, 100, 0.3), 0 0 0 1px rgba(0,0,0,0.06);
@@ -266,7 +269,7 @@
     font-size: 14px;
     font-weight: 600;
     background: transparent;
-    color: #3D4A6B;
+    color: #1F2A47;
     flex-shrink: 0;
     position: relative;
     z-index: 5;
@@ -298,7 +301,7 @@
     justify-content: center;
     gap: 1px;
     font-size: 10px;
-    color: #94A3C4;
+    color: #5A6788;
     cursor: pointer;
     transition: all 0.25s;
     -webkit-tap-highlight-color: transparent;
@@ -381,7 +384,7 @@
     align-items: center;
     justify-content: center;
     font-size: 20px;
-    color: #666;
+    color: #444;
     cursor: pointer;
     transition: all 0.2s;
   }
@@ -409,8 +412,8 @@
     gap: 6px;
     cursor: pointer;
   }
-  .header-title i.fa-chevron-down { font-size: 12px; color: #999; }
-  .header-icons { display: flex; gap: 16px; color: #8D8D8D; }
+  .header-title i.fa-chevron-down { font-size: 12px; color: #666; }
+  .header-icons { display: flex; gap: 16px; color: #5A5A5A; }
   .header-icons i { cursor: pointer; }
   .header-icons i.fa-magic { color: var(--primary); }
   .search-bar {
@@ -433,7 +436,7 @@
     font-weight: 600;
     font-size: 16px;
   }
-  .date-nav .date-arrows i { margin: 0 4px; color: #ccc; font-size: 12px; cursor: pointer; }
+  .date-nav .date-arrows i { margin: 0 4px; color: #999; font-size: 12px; cursor: pointer; }
   .date-nav .date-arrows i:hover { color: var(--primary); }
   .view-toggle {
     font-size: 13px;
@@ -448,7 +451,7 @@
     margin: 8px 16px;
     border-radius: var(--card-radius);
     padding: 24px;
-    color: #3D4A6B;
+    color: #1F2A47;
     position: relative;
     overflow: hidden;
     height: 180px;
@@ -481,19 +484,89 @@
   .hero-card .balance-label {
     font-size: 14px; opacity: 0.85;
     display: flex; align-items: center; gap: 6px;
-    color: #3D4A6B;
+    color: #1F2A47;
   }
-  .hero-card .balance-amount { font-size: 36px; font-weight: 700; color: #3D4A6B; }
+  .hero-card .balance-amount { font-size: 36px; font-weight: 700; color: #1F2A47; }
   .hero-card .hero-summary {
     display: flex; justify-content: space-between; font-size: 13px;
-    color: #3D4A6B;
+    color: #1F2A47;
     opacity: 0.85;
   }
+  .hero-card .hero-accounts {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.35);
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #1F2A47;
+    opacity: 0.85;
+  }
+  .hero-card .hero-accounts span { display: flex; align-items: center; gap: 4px; }
+
+  .budget-card {
+    margin: 8px 16px;
+    border-radius: var(--card-radius);
+    padding: 20px 24px;
+    color: #1F2A47;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #F0E8F8 0%, #F8ECD8 50%, #E8F4F0 100%);
+    box-shadow: 0 6px 20px rgba(180, 160, 200, 0.18);
+  }
+  .budget-card::after {
+    content: '📊 📈 📉';
+    position: absolute;
+    right: 12px; top: 12px;
+    font-size: 14px;
+    opacity: 0.4;
+    transform: rotate(5deg);
+  }
+  .budget-card .bdgt-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 12px;
+  }
+  .budget-card .bdgt-label {
+    font-size: 14px; opacity: 0.85;
+    display: flex; align-items: center; gap: 6px;
+    color: #1F2A47;
+  }
+  .budget-card .bdgt-total { font-size: 28px; font-weight: 700; color: #1F2A47; }
+  .budget-card .bdgt-bar {
+    height: 6px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 3px;
+    margin: 8px 0 6px;
+    overflow: hidden;
+  }
+  .budget-card .bdgt-bar-fill {
+    height: 100%;
+    width: 28%;
+    background: linear-gradient(90deg, #E89B9B, #6BA8D9);
+    border-radius: 3px;
+    transition: width 0.3s;
+  }
+  .budget-card .bdgt-used {
+    font-size: 12px; opacity: 0.75;
+    display: flex; justify-content: space-between;
+    color: #1F2A47;
+  }
+  .budget-card .bdgt-cats {
+    display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap;
+  }
+  .budget-card .bdgt-cat {
+    font-size: 12px; padding: 4px 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.3);
+    color: #1F2A47;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .budget-card .bdgt-cat .used { opacity: 0.7; }
 
   .section-header {
     display: flex; justify-content: space-between;
     padding: 16px 16px 8px;
-    font-size: 14px; color: #8D8D8D;
+    font-size: 14px; color: #5A5A5A;
   }
   .section-header .total { color: var(--text-sub); font-size: 12px; cursor: pointer; }
 
@@ -521,8 +594,8 @@
     font-size: 18px;
     flex-shrink: 0;
   }
-  .tx-icon.income { background: #E0F0EA; color: #7BC4A8; }
-  .tx-icon.expense { background: #F4F0FA; color: #6BA8D9; }
+  .tx-icon.income { background: #F0E8E8; color: #E89B9B; }
+  .tx-icon.expense { background: #E0F0EA; color: #7BC4A8; }
   .tx-info { flex: 1; min-width: 0; }
   .tx-title { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
   .tx-meta { font-size: 12px; color: var(--text-sub); }
@@ -530,7 +603,7 @@
   .tx-amount .value { font-size: 17px; font-weight: 600; }
   .tx-amount .value.income { color: var(--income); }
   .tx-amount .value.expense { color: var(--expense); }
-  .tx-amount .method { font-size: 11px; color: #bbb; margin-top: 2px; }
+  .tx-amount .method { font-size: 11px; color: #888; margin-top: 2px; }
 
   .fab {
     position: absolute;
@@ -719,7 +792,7 @@
     align-items: center;
     gap: 6px;
     font-size: 13px;
-    color: #666;
+    color: #444;
   }
   .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 
@@ -832,7 +905,7 @@
     width: 20px;
     text-align: center;
   }
-  .menu-item i.fa-chevron-right { color: #ccc; font-size: 12px; }
+  .menu-item i.fa-chevron-right { color: #999; font-size: 12px; }
 
   /* ==================================================================
      PAGE 6: 记一笔
@@ -876,7 +949,7 @@
     width: 200px;
     background: transparent;
   }
-  .amount-row .amount-input::placeholder { color: #e0e0e0; }
+  .amount-row .amount-input::placeholder { color: #a0a0a0; }
 
   .cat-grid {
     display: grid;
@@ -902,7 +975,7 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 20px;
   }
-  .cat-grid .cat-item .cat-name { font-size: 11px; color: #666; }
+  .cat-grid .cat-item .cat-name { font-size: 11px; color: #444; }
 
   .modal-field { margin-bottom: 12px; }
   .modal-field label {
@@ -968,7 +1041,7 @@
         <input type="password" class="input-field" placeholder="密码" value="········">
         <div class="forgot-link"><a href="#">忘记密码？</a></div>
         <button class="btn-primary" onclick="switchPage('page-home')">登 录</button>
-        <div style="text-align:center; margin:20px 0; color:#94A3C4; font-size:13px;">—— 其他方式快速登录 ——</div>
+        <div style="text-align:center; margin:20px 0; color:#5A6788; font-size:13px;">—— 其他方式快速登录 ——</div>
         <div class="social-login">
           <div class="social-btn" title="QQ登录"><i class="fab fa-qq" style="color:#12B7F5;font-size:22px;"></i></div>
           <div class="social-btn" title="微信登录"><i class="fab fa-weixin" style="color:#07C160;font-size:20px;"></i></div>
@@ -1012,9 +1085,26 @@
         </div>
       </div>
 
+      <div class="budget-card">
+        <div class="bdgt-header">
+          <div class="bdgt-label"><i class="fas fa-chart-pie"></i> 本月预算</div>
+          <div class="bdgt-total">¥1,500</div>
+        </div>
+        <div class="bdgt-bar"><div class="bdgt-bar-fill"></div></div>
+        <div class="bdgt-used">
+          <span>已用 ¥434.57</span>
+          <span>剩余 ¥1,065.43</span>
+        </div>
+        <div class="bdgt-cats">
+          <div class="bdgt-cat"><span class="used">🍜</span> 餐饮 <span class="used">¥210</span></div>
+          <div class="bdgt-cat"><span class="used">🚇</span> 交通 <span class="used">¥130</span></div>
+          <div class="bdgt-cat"><span class="used">🛒</span> 购物 <span class="used">¥50</span></div>
+        </div>
+      </div>
+
       <div class="section-header">
         <span>📅 今天 7月1日</span>
-        <span class="total">收入: +0.00 支出: -32.50 <i class="fas fa-chevron-down"></i></span>
+        <span class="total">收入: +0.00 支出: -41.90 <i class="fas fa-chevron-down"></i></span>
       </div>
 
       <div class="tx-item" onclick="switchPage('page-record')">
@@ -1349,7 +1439,7 @@
         <div class="rank-num">5</div>
         <div class="tx-icon expense"><i class="fas fa-ellipsis-h"></i></div>
         <div class="tx-info"><div class="tx-title">其他</div></div>
-        <div class="rank-bar"><div class="rank-bar-fill" style="width:15%; background:#94A3C4;"></div></div>
+        <div class="rank-bar"><div class="rank-bar-fill" style="width:15%; background:#A8B0C0;"></div></div>
         <div class="rank-amount" style="color:#6BA8D9;">¥432.10</div>
       </div>
       <div style="height: 20px;"></div>
@@ -1384,7 +1474,7 @@
           </div>
           <div class="menu-item">
             <div class="menu-item-left">
-              <i class="fas fa-cog" style="color:#94A3C4;"></i>
+              <i class="fas fa-cog" style="color:#5A6788;"></i>
               <span>设置</span>
             </div>
             <i class="fas fa-chevron-right"></i>
@@ -1420,7 +1510,7 @@
               <i class="fas fa-language" style="color:#6BA8D9;"></i>
               <span>多语言</span>
             </div>
-            <div style="font-size:13px; color:var(--text-sub);">中文 <i class="fas fa-chevron-right" style="margin-left:6px;color:#ccc;"></i></div>
+            <div style="font-size:13px; color:var(--text-sub);">中文 <i class="fas fa-chevron-right" style="margin-left:6px;color:#999;"></i></div>
           </div>
         </div>
       </div>
@@ -1436,7 +1526,7 @@
           </div>
           <div class="menu-item">
             <div class="menu-item-left">
-              <i class="fas fa-info-circle" style="color:#94A3C4;"></i>
+              <i class="fas fa-info-circle" style="color:#5A6788;"></i>
               <span>关于</span>
             </div>
             <div style="font-size:13px; color:var(--text-sub);">v1.0.0</div>
@@ -1486,28 +1576,28 @@
           <label>日期</label>
           <div class="field-value">
             <span>2026-07-01 周三</span>
-            <i class="fas fa-chevron-right" style="color:#ccc;font-size:12px;"></i>
+            <i class="fas fa-chevron-right" style="color:#999;font-size:12px;"></i>
           </div>
         </div>
         <div class="modal-field">
           <label>账户</label>
           <div class="field-value">
             <span>招商银行 (储蓄卡)</span>
-            <i class="fas fa-chevron-right" style="color:#ccc;font-size:12px;"></i>
+            <i class="fas fa-chevron-right" style="color:#999;font-size:12px;"></i>
           </div>
         </div>
         <div class="modal-field">
           <label>标签</label>
           <div class="field-value">
             <span>日常 · 午餐</span>
-            <i class="fas fa-chevron-right" style="color:#ccc;font-size:12px;"></i>
+            <i class="fas fa-chevron-right" style="color:#999;font-size:12px;"></i>
           </div>
         </div>
         <div class="modal-field">
           <label>备注</label>
           <div class="field-value" style="color:var(--text-sub);">
             <span>添加备注...</span>
-            <i class="fas fa-chevron-right" style="color:#ccc;font-size:12px;"></i>
+            <i class="fas fa-chevron-right" style="color:#999;font-size:12px;"></i>
           </div>
         </div>
 
